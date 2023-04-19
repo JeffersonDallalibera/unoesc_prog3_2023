@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Calculadora de Fatorial</h1>
+    <p>Este programa calcula o fatorial de um número</p>
+    <p>Por favor, digite um número</p>
+    <input type="number" id="num" />
+    <button onclick="calcularFatorial()">Calcular</button>
+    <p id="resultado"></p>
+    <script>
+        function calcularFatorial() {
+            let num = document.getElementById("num").value;
+            let resultado = 1;
+            for (let i = 2; i <= num; i++) {
+                resultado *= i;
+            }
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+    </script>
+
+    <h1>Qual é o triangulo</h1>
+    <p>Este programa retorna qual é o tipo do triangulo</p>
+    <p>Por favor, digite o valor do lado A</p>
+    <input type="number" id="ladoA" />
+    <p>Por favor, digite o valor do lado B</p>
+    <input type="number" id="ladoB" />
+    <p>Por favor, digite o valor do lado C</p>
+    <input type="number" id="ladoC" />
+    <button onclick="calcularTriangulo()">Calcular</button>
+    <p id="resultadoTriangulo"></p>
+
+    <script>
+        function calcularTriangulo() {
+            let ladoA = document.getElementById("ladoA").value;
+            let ladoB = document.getElementById("ladoB").value;
+            let ladoC = document.getElementById("ladoC").value;
+            let resultadoTriangulo = "";
+            if (ladoA == ladoB && ladoB == ladoC) {
+                resultadoTriangulo = "Equilátero";
+            } else if (ladoA == ladoB || ladoB == ladoC || ladoA == ladoC) {
+                resultadoTriangulo = "Isósceles";
+            } else {
+                resultadoTriangulo = "Escaleno";
+            }
+            document.getElementById("resultadoTriangulo").innerHTML =
+                resultadoTriangulo;
+        }
+    </script>
+
+    <h1>Numero Primo X</h1>
+    <p>Este programa retorna se o numero é primo ou não</p>
+    <p>Por favor, digite um número</p>
+    <input type="number" id="numPrimo" />
+    <button onclick="encontrarPrimosAteX()">Calcular</button>
+    <p id="resultadoPrimo"></p>
+
+    <script>
+        var primos = []; // array para armazenar os números primos encontrados
+
+        function encontrarPrimosAteX() {
+            X = document.getElementById("numPrimo").value;
+            var primosEncontrados = []; // array para armazenar os primos encontrados nesta chamada
+
+            // verifica cada número de 2 até X se é primo
+            for (var i = 2; i <= X; i++) {
+                var ehPrimo = true;
+                for (var j = 2; j < i; j++) {
+                    if (i % j == 0) {
+                        ehPrimo = false;
+                        break;
+                    }
+                }
+                if (ehPrimo) {
+                    primosEncontrados.push(i); // adiciona o primo encontrado ao array
+                }
+            }
+
+            primos = primosEncontrados; // atualiza o array global com os primos encontrados nesta chamada
+
+            document.getElementById("resultadoPrimo").innerHTML = primosEncontrados;
+        }
+    </script>
+
+    <h1>Altura e sexo de 5 pessoas</h1>
+
+    <form>
+        <label for="altura1">Altura da pessoa 1:</label>
+        <input type="number" id="altura1" step="0.01" required>
+        <label for="sexo1">Sexo da pessoa 1:</label>
+        <select id="sexo1" required>
+            <option value="">Selecione</option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+        </select>
+
+        <label for="altura2">Altura da pessoa 2:</label>
+        <input type="number" id="altura2" step="0.01" required>
+        <label for="sexo2">Sexo da pessoa 2:</label>
+        <select id="sexo2" required>
+            <option value="">Selecione</option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+        </select>
+
+        <label for="altura3">Altura da pessoa 3:</label>
+        <input type="number" id="altura3" step="0.01" required>
+        <label for="sexo3">Sexo da pessoa 3:</label>
+        <select id="sexo3" required>
+            <option value="">Selecione</option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+        </select>
+
+        <label for="altura4">Altura da pessoa 4:</label>
+        <input type="number" id="altura4" step="0.01" required>
+        <label for="sexo4">Sexo da pessoa 4:</label>
+        <select id="sexo4" required>
+            <option value="">Selecione</option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+        </select>
+
+        <label for="altura5">Altura da pessoa 5:</label>
+        <input type="number" id="altura5" step="0.01" required>
+        <label for="sexo5">Sexo da pessoa 5:</label>
+        <select id="sexo5" required>
+            <option value="">Selecione</option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+        </select>
+
+        <button type="button" onclick="calcular()">Calcular</button>
+    </form>
+
+    <p id="resultado"></p>
+
+    
+
+</body>
+
+</html>
